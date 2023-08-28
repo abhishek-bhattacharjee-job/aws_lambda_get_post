@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Test</title>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>CORS Test</h1>
+    <button id="testButton">Test CORS</button>
+    <p id="result"></p>
+
+    <script>
+        $(document).ready(function() {
+          console.log("ready");
+            $('#testButton').click(function() {
+              $.ajax({
+                  url: 'https://zajl4hijcs5rviylwevwqk3sj40kbusf.lambda-url.us-east-2.on.aws',
+                  method: 'POST',
+                  crossDomain: true,
+                  data: JSON.stringify({"var1": "a", "var2": "b"}),
+                  contentType: 'application/json',
+                  success: function(data)
+                  {
+                      console.log(data);
+                      $('#result').text('CORS is enabled');
+                  },
+                  error: function(xhr, status, error)
+                  {
+                      $('#result').text('CORS may not be enabled in your api');
+                      console.log("***************************************************************************");
+                      console.log(xhr.status);
+                      console.log(status);
+                      console.log(error);
+                      console.log("***************************************************************************");
+                  }
+              });
+            });
+        });
+    </script>
+</body>
+</html>
