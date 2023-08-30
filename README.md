@@ -8,6 +8,15 @@ This is sample code for creating get and post api through AWS lambda
 ```bash
 git clone https://github.com/abhishek-bhattacharjee-job/aws_lambda_get_post.git
 ```
+
+```bash
+cd lambda_web_scraper\python\lib\python3.9\site-packages
+```
+
+```bash
+pip install -r requirements.txt -t .
+```
+
 ## Related Youtube videos
 
 ```bash
